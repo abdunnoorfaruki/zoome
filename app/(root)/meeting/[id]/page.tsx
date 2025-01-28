@@ -13,9 +13,9 @@ interface MeetingPageProps {
 
 const MeetingPage = ({ params }: MeetingPageProps) => {
   const { id } = use(params);
-  const { user, isLoaded } = useUser();
+  const { isLoaded } = useUser();
   const [isSetupComplete, setIsSetupComplete] = useState(false);
-  const { call, isCallLoading, error } = useGetCallById(id);
+  const { call, isCallLoading } = useGetCallById(id);
   if (!isLoaded || isCallLoading) return <Loader />;
 
   const handleSetupComplete = () => {
